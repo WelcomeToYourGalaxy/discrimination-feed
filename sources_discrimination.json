@@ -1,1567 +1,2095 @@
 {
-  "_note": [
-    "Sources for the discrimination wire.",
-    "",
-    "direct: feeds proven working in the sibling Welcome to Your Galaxy repos.",
-    "  Nothing was invented — an untested feed URL reports itself unreachable on",
-    "  every harvest and quietly makes the coverage figure a lie.",
-    "",
-    "gnews: Google News locale searches. The harvester builds the URL from",
-    "  hl / gl / ceid. Twenty-four queries rotate across 46 locales so all ten of",
-    "  the named forms are covered rather than one repeated.",
-    "",
-    "events: subject searches for the treaty bodies, monitors and recurring",
-    "  publications that have no verified feed here.",
-    "",
-    "standing is provenance, not importance:",
-    "  official  courts, treaty bodies, equality commissions, UN bodies",
-    "  research  monitoring organisations and research",
-    "  press     general news across the locales",
-    "  rights    rights and community organisations",
-    "",
-    "Worth adding, with URLs you have opened: Minority Rights Group, Equal Rights",
-    "Trust, IDA (disability), Dalit rights organisations, national equality bodies."
-  ],
-  "direct": [
-    {
-      "name": "OHCHR — news",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.ohchr.org/en/rss/news"
-    },
-    {
-      "name": "UN News — Human Rights",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://news.un.org/feed/subscribe/en/news/topic/human-rights/feed/rss.xml"
-    },
-    {
-      "name": "UN Special Procedures",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.ohchr.org/en/rss/special-procedures"
-    },
-    {
-      "name": "European Court of Human Rights",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.echr.coe.int/rss"
-    },
-    {
-      "name": "Inter-American Commission on Human Rights",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.oas.org/en/iachr/rss/rss_pr.xml"
-    },
-    {
-      "name": "Council of Europe · anti-torture",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.coe.int/en/web/cpt/-/rss"
-    },
-    {
-      "name": "UNHCR",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.unhcr.org/rss.xml"
-    },
-    {
-      "name": "IOM Missing Migrants",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://missingmigrants.iom.int/rss.xml"
-    },
-    {
-      "name": "Human Rights Watch",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://www.hrw.org/rss/news"
-    },
-    {
-      "name": "Amnesty International",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://www.amnesty.org/en/rss/"
-    },
-    {
-      "name": "Freedom House",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://freedomhouse.org/rss.xml"
-    },
-    {
-      "name": "CIVICUS Monitor",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://monitor.civicus.org/feed/"
-    },
-    {
-      "name": "Business & Human Rights Resource Centre",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://www.business-humanrights.org/en/rss/"
-    },
-    {
-      "name": "ILGA World",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://ilga.org/feed"
-    },
-    {
-      "name": "European Roma Rights Centre",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.errc.org/rss"
-    },
-    {
-      "name": "Article 19",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.article19.org/feed/"
-    },
-    {
-      "name": "Front Line Defenders",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.frontlinedefenders.org/rss.xml"
-    },
-    {
-      "name": "World Organisation Against Torture (OMCT)",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.omct.org/en/rss"
-    },
-    {
-      "name": "Redress",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://redress.org/feed/"
-    },
-    {
-      "name": "Association for the Prevention of Torture",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.apt.ch/rss.xml"
-    },
-    {
-      "name": "Statewatch",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.statewatch.org/rss/"
-    },
-    {
-      "name": "Privacy International",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://privacyinternational.org/rss.xml"
-    },
-    {
-      "name": "EDRi",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://edri.org/feed/"
-    },
-    {
-      "name": "Access Now",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.accessnow.org/feed/"
-    },
-    {
-      "name": "APTN News (Canada)",
-      "lang": "en",
-      "standing": "rights",
-      "url": "https://www.aptnnews.ca/feed/"
-    }
-  ],
-  "gnews": [
-    {
-      "label": "English (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"racial discrimination\" OR racism OR \"racial profiling\""
-    },
-    {
-      "label": "English (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "sexism OR misogyny OR \"gender discrimination\" OR \"equal rights\" women"
-    },
-    {
-      "label": "English (US) 3",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"religious freedom\" OR \"religious persecution\" OR blasphemy law"
-    },
-    {
-      "label": "English (UK) 4",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en-GB",
-      "query": "\"LGBT rights\" OR \"criminalise homosexuality\" OR \"same-sex\" ruling"
-    },
-    {
-      "label": "English (UK) 5",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en-GB",
-      "query": "\"disability rights\" OR ableism OR accessibility ruling OR \"forced sterilisation\""
-    },
-    {
-      "label": "English (UK) 6",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en-GB",
-      "query": "\"hate crime\" OR \"hate speech\" law OR \"incitement to hatred\""
-    },
-    {
-      "label": "English (India) 7",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"ethnic minority\" discrimination OR \"ethnic cleansing\" OR statelessness"
-    },
-    {
-      "label": "English (India) 8",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"caste discrimination\" OR colourism OR \"skin colour\" discrimination"
-    },
-    {
-      "label": "English (India) 9",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"anti-discrimination\" law OR \"equality act\" OR \"equality commission\""
-    },
-    {
-      "label": "English (Nigeria) 10",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-NG",
-      "gl": "NG",
-      "ceid": "NG:en",
-      "query": "\"hiring discrimination\" OR \"employment discrimination\" OR \"workplace discrimination\""
-    },
-    {
-      "label": "English (Nigeria) 11",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-NG",
-      "gl": "NG",
-      "ceid": "NG:en",
-      "query": "\"housing discrimination\" OR redlining OR \"denied service\" discrimination"
-    },
-    {
-      "label": "English (Nigeria) 12",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-NG",
-      "gl": "NG",
-      "ceid": "NG:en",
-      "query": "xenophobia OR \"migrant\" discrimination OR asylum denied"
-    },
-    {
-      "label": "English (South Africa) 13",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-ZA",
-      "gl": "ZA",
-      "ceid": "ZA:en",
-      "query": "\"institutional racism\" OR \"far-right\" infiltration police OR military"
-    },
-    {
-      "label": "English (South Africa) 14",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-ZA",
-      "gl": "ZA",
-      "ceid": "ZA:en",
-      "query": "ageism OR \"age discrimination\" OR \"older workers\" excluded"
-    },
-    {
-      "label": "English (South Africa) 15",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-ZA",
-      "gl": "ZA",
-      "ceid": "ZA:en",
-      "query": "\"animal sentience\" OR \"rights of nature\" OR \"legal personhood\" animal"
-    },
-    {
-      "label": "English (Australia) 16",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "\"algorithmic bias\" OR \"automated decision\" discrimination"
-    },
-    {
-      "label": "English (Australia) 17",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "\"affirmative action\" OR reparations OR \"reserved seats\" ruling"
-    },
-    {
-      "label": "English (Australia) 18",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "\"discrimination survey\" OR \"equality data\" OR discrimination prevalence study"
-    },
-    {
-      "label": "English (Kenya) 19",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-KE",
-      "gl": "KE",
-      "ceid": "KE:en",
-      "query": "antisemitism OR islamophobia OR \"religious minority\" attack"
-    },
-    {
-      "label": "English (Kenya) 20",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-KE",
-      "gl": "KE",
-      "ceid": "KE:en",
-      "query": "\"conversion therapy\" OR \"gender recognition\" OR transphobia"
-    },
-    {
-      "label": "English (Kenya) 21",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-KE",
-      "gl": "KE",
-      "ceid": "KE:en",
-      "query": "\"child marriage\" OR \"female genital mutilation\" OR guardianship law women"
-    },
-    {
-      "label": "English (Philippines) 22",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-PH",
-      "gl": "PH",
-      "ceid": "PH:en",
-      "query": "\"dwarfism\" OR \"height discrimination\" OR \"appearance discrimination\""
-    },
-    {
-      "label": "English (Philippines) 23",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-PH",
-      "gl": "PH",
-      "ceid": "PH:en",
-      "query": "\"diversity programme\" scrapped OR \"DEI\" rollback OR equality rollback"
-    },
-    {
-      "label": "English (Philippines) 24",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-PH",
-      "gl": "PH",
-      "ceid": "PH:en",
-      "query": "\"civil rights\" ruling OR \"landmark ruling\" discrimination"
-    },
-    {
-      "label": "Spanish (Spain) 25",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "\"racial discrimination\" OR racism OR \"racial profiling\""
-    },
-    {
-      "label": "Spanish (Spain) 26",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "sexism OR misogyny OR \"gender discrimination\" OR \"equal rights\" women"
-    },
-    {
-      "label": "Spanish (Spain) 27",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "\"religious freedom\" OR \"religious persecution\" OR blasphemy law"
-    },
-    {
-      "label": "Spanish (Mexico) 28",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "\"LGBT rights\" OR \"criminalise homosexuality\" OR \"same-sex\" ruling"
-    },
-    {
-      "label": "Spanish (Mexico) 29",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "\"disability rights\" OR ableism OR accessibility ruling OR \"forced sterilisation\""
-    },
-    {
-      "label": "Spanish (Mexico) 30",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "\"hate crime\" OR \"hate speech\" law OR \"incitement to hatred\""
-    },
-    {
-      "label": "Spanish (Argentina) 31",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "\"ethnic minority\" discrimination OR \"ethnic cleansing\" OR statelessness"
-    },
-    {
-      "label": "Spanish (Argentina) 32",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "\"caste discrimination\" OR colourism OR \"skin colour\" discrimination"
-    },
-    {
-      "label": "Spanish (Argentina) 33",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "\"anti-discrimination\" law OR \"equality act\" OR \"equality commission\""
-    },
-    {
-      "label": "Spanish (Colombia) 34",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "CO",
-      "ceid": "CO:es-419",
-      "query": "\"hiring discrimination\" OR \"employment discrimination\" OR \"workplace discrimination\""
-    },
-    {
-      "label": "Spanish (Colombia) 35",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "CO",
-      "ceid": "CO:es-419",
-      "query": "\"housing discrimination\" OR redlining OR \"denied service\" discrimination"
-    },
-    {
-      "label": "Spanish (Colombia) 36",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "CO",
-      "ceid": "CO:es-419",
-      "query": "xenophobia OR \"migrant\" discrimination OR asylum denied"
-    },
-    {
-      "label": "French (France) 37",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "FR",
-      "ceid": "FR:fr",
-      "query": "\"institutional racism\" OR \"far-right\" infiltration police OR military"
-    },
-    {
-      "label": "French (France) 38",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "FR",
-      "ceid": "FR:fr",
-      "query": "ageism OR \"age discrimination\" OR \"older workers\" excluded"
-    },
-    {
-      "label": "French (France) 39",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "FR",
-      "ceid": "FR:fr",
-      "query": "\"animal sentience\" OR \"rights of nature\" OR \"legal personhood\" animal"
-    },
-    {
-      "label": "French (Senegal) 40",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "SN",
-      "ceid": "SN:fr",
-      "query": "\"algorithmic bias\" OR \"automated decision\" discrimination"
-    },
-    {
-      "label": "French (Senegal) 41",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "SN",
-      "ceid": "SN:fr",
-      "query": "\"affirmative action\" OR reparations OR \"reserved seats\" ruling"
-    },
-    {
-      "label": "French (Senegal) 42",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "SN",
-      "ceid": "SN:fr",
-      "query": "\"discrimination survey\" OR \"equality data\" OR discrimination prevalence study"
-    },
-    {
-      "label": "French (Canada) 43",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "CA",
-      "ceid": "CA:fr",
-      "query": "antisemitism OR islamophobia OR \"religious minority\" attack"
-    },
-    {
-      "label": "French (Canada) 44",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "CA",
-      "ceid": "CA:fr",
-      "query": "\"conversion therapy\" OR \"gender recognition\" OR transphobia"
-    },
-    {
-      "label": "French (Canada) 45",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "CA",
-      "ceid": "CA:fr",
-      "query": "\"child marriage\" OR \"female genital mutilation\" OR guardianship law women"
-    },
-    {
-      "label": "Portuguese (Brazil) 46",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "BR",
-      "ceid": "BR:pt-419",
-      "query": "\"dwarfism\" OR \"height discrimination\" OR \"appearance discrimination\""
-    },
-    {
-      "label": "Portuguese (Brazil) 47",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "BR",
-      "ceid": "BR:pt-419",
-      "query": "\"diversity programme\" scrapped OR \"DEI\" rollback OR equality rollback"
-    },
-    {
-      "label": "Portuguese (Brazil) 48",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "BR",
-      "ceid": "BR:pt-419",
-      "query": "\"civil rights\" ruling OR \"landmark ruling\" discrimination"
-    },
-    {
-      "label": "Portuguese (Portugal) 49",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-PT",
-      "gl": "PT",
-      "ceid": "PT:pt-150",
-      "query": "\"racial discrimination\" OR racism OR \"racial profiling\""
-    },
-    {
-      "label": "Portuguese (Portugal) 50",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-PT",
-      "gl": "PT",
-      "ceid": "PT:pt-150",
-      "query": "sexism OR misogyny OR \"gender discrimination\" OR \"equal rights\" women"
-    },
-    {
-      "label": "Portuguese (Portugal) 51",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-PT",
-      "gl": "PT",
-      "ceid": "PT:pt-150",
-      "query": "\"religious freedom\" OR \"religious persecution\" OR blasphemy law"
-    },
-    {
-      "label": "Portuguese (Angola) 52",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-PT",
-      "gl": "AO",
-      "ceid": "AO:pt-150",
-      "query": "\"LGBT rights\" OR \"criminalise homosexuality\" OR \"same-sex\" ruling"
-    },
-    {
-      "label": "Portuguese (Angola) 53",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-PT",
-      "gl": "AO",
-      "ceid": "AO:pt-150",
-      "query": "\"disability rights\" OR ableism OR accessibility ruling OR \"forced sterilisation\""
-    },
-    {
-      "label": "Portuguese (Angola) 54",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-PT",
-      "gl": "AO",
-      "ceid": "AO:pt-150",
-      "query": "\"hate crime\" OR \"hate speech\" law OR \"incitement to hatred\""
-    },
-    {
-      "label": "German (Germany) 55",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "DE",
-      "ceid": "DE:de",
-      "query": "\"ethnic minority\" discrimination OR \"ethnic cleansing\" OR statelessness"
-    },
-    {
-      "label": "German (Germany) 56",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "DE",
-      "ceid": "DE:de",
-      "query": "\"caste discrimination\" OR colourism OR \"skin colour\" discrimination"
-    },
-    {
-      "label": "German (Germany) 57",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "DE",
-      "ceid": "DE:de",
-      "query": "\"anti-discrimination\" law OR \"equality act\" OR \"equality commission\""
-    },
-    {
-      "label": "German (Austria) 58",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "AT",
-      "ceid": "AT:de",
-      "query": "\"hiring discrimination\" OR \"employment discrimination\" OR \"workplace discrimination\""
-    },
-    {
-      "label": "German (Austria) 59",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "AT",
-      "ceid": "AT:de",
-      "query": "\"housing discrimination\" OR redlining OR \"denied service\" discrimination"
-    },
-    {
-      "label": "German (Austria) 60",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "AT",
-      "ceid": "AT:de",
-      "query": "xenophobia OR \"migrant\" discrimination OR asylum denied"
-    },
-    {
-      "label": "Russian (Russia) 61",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "RU",
-      "ceid": "RU:ru",
-      "query": "\"institutional racism\" OR \"far-right\" infiltration police OR military"
-    },
-    {
-      "label": "Russian (Russia) 62",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "RU",
-      "ceid": "RU:ru",
-      "query": "ageism OR \"age discrimination\" OR \"older workers\" excluded"
-    },
-    {
-      "label": "Russian (Russia) 63",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "RU",
-      "ceid": "RU:ru",
-      "query": "\"animal sentience\" OR \"rights of nature\" OR \"legal personhood\" animal"
-    },
-    {
-      "label": "Russian (Kazakhstan) 64",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "KZ",
-      "ceid": "KZ:ru",
-      "query": "\"algorithmic bias\" OR \"automated decision\" discrimination"
-    },
-    {
-      "label": "Russian (Kazakhstan) 65",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "KZ",
-      "ceid": "KZ:ru",
-      "query": "\"affirmative action\" OR reparations OR \"reserved seats\" ruling"
-    },
-    {
-      "label": "Russian (Kazakhstan) 66",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "KZ",
-      "ceid": "KZ:ru",
-      "query": "\"discrimination survey\" OR \"equality data\" OR discrimination prevalence study"
-    },
-    {
-      "label": "Arabic (Egypt) 67",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "EG",
-      "ceid": "EG:ar",
-      "query": "antisemitism OR islamophobia OR \"religious minority\" attack"
-    },
-    {
-      "label": "Arabic (Egypt) 68",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "EG",
-      "ceid": "EG:ar",
-      "query": "\"conversion therapy\" OR \"gender recognition\" OR transphobia"
-    },
-    {
-      "label": "Arabic (Egypt) 69",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "EG",
-      "ceid": "EG:ar",
-      "query": "\"child marriage\" OR \"female genital mutilation\" OR guardianship law women"
-    },
-    {
-      "label": "Arabic (UAE) 70",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "AE",
-      "ceid": "AE:ar",
-      "query": "\"dwarfism\" OR \"height discrimination\" OR \"appearance discrimination\""
-    },
-    {
-      "label": "Arabic (UAE) 71",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "AE",
-      "ceid": "AE:ar",
-      "query": "\"diversity programme\" scrapped OR \"DEI\" rollback OR equality rollback"
-    },
-    {
-      "label": "Arabic (UAE) 72",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "AE",
-      "ceid": "AE:ar",
-      "query": "\"civil rights\" ruling OR \"landmark ruling\" discrimination"
-    },
-    {
-      "label": "Arabic (Lebanon) 73",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "LB",
-      "ceid": "LB:ar",
-      "query": "\"racial discrimination\" OR racism OR \"racial profiling\""
-    },
-    {
-      "label": "Arabic (Lebanon) 74",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "LB",
-      "ceid": "LB:ar",
-      "query": "sexism OR misogyny OR \"gender discrimination\" OR \"equal rights\" women"
-    },
-    {
-      "label": "Arabic (Lebanon) 75",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "LB",
-      "ceid": "LB:ar",
-      "query": "\"religious freedom\" OR \"religious persecution\" OR blasphemy law"
-    },
-    {
-      "label": "Chinese (Mainland) 76",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-CN",
-      "gl": "CN",
-      "ceid": "CN:zh-Hans",
-      "query": "\"LGBT rights\" OR \"criminalise homosexuality\" OR \"same-sex\" ruling"
-    },
-    {
-      "label": "Chinese (Mainland) 77",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-CN",
-      "gl": "CN",
-      "ceid": "CN:zh-Hans",
-      "query": "\"disability rights\" OR ableism OR accessibility ruling OR \"forced sterilisation\""
-    },
-    {
-      "label": "Chinese (Mainland) 78",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-CN",
-      "gl": "CN",
-      "ceid": "CN:zh-Hans",
-      "query": "\"hate crime\" OR \"hate speech\" law OR \"incitement to hatred\""
-    },
-    {
-      "label": "Chinese (Taiwan) 79",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-TW",
-      "gl": "TW",
-      "ceid": "TW:zh-Hant",
-      "query": "\"ethnic minority\" discrimination OR \"ethnic cleansing\" OR statelessness"
-    },
-    {
-      "label": "Chinese (Taiwan) 80",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-TW",
-      "gl": "TW",
-      "ceid": "TW:zh-Hant",
-      "query": "\"caste discrimination\" OR colourism OR \"skin colour\" discrimination"
-    },
-    {
-      "label": "Chinese (Taiwan) 81",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-TW",
-      "gl": "TW",
-      "ceid": "TW:zh-Hant",
-      "query": "\"anti-discrimination\" law OR \"equality act\" OR \"equality commission\""
-    },
-    {
-      "label": "Chinese (Hong Kong) 82",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-HK",
-      "gl": "HK",
-      "ceid": "HK:zh-Hant",
-      "query": "\"hiring discrimination\" OR \"employment discrimination\" OR \"workplace discrimination\""
-    },
-    {
-      "label": "Chinese (Hong Kong) 83",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-HK",
-      "gl": "HK",
-      "ceid": "HK:zh-Hant",
-      "query": "\"housing discrimination\" OR redlining OR \"denied service\" discrimination"
-    },
-    {
-      "label": "Chinese (Hong Kong) 84",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-HK",
-      "gl": "HK",
-      "ceid": "HK:zh-Hant",
-      "query": "xenophobia OR \"migrant\" discrimination OR asylum denied"
-    },
-    {
-      "label": "Hindi (India) 85",
-      "lang": "hi",
-      "standing": "press",
-      "hl": "hi",
-      "gl": "IN",
-      "ceid": "IN:hi",
-      "query": "\"institutional racism\" OR \"far-right\" infiltration police OR military"
-    },
-    {
-      "label": "Hindi (India) 86",
-      "lang": "hi",
-      "standing": "press",
-      "hl": "hi",
-      "gl": "IN",
-      "ceid": "IN:hi",
-      "query": "ageism OR \"age discrimination\" OR \"older workers\" excluded"
-    },
-    {
-      "label": "Hindi (India) 87",
-      "lang": "hi",
-      "standing": "press",
-      "hl": "hi",
-      "gl": "IN",
-      "ceid": "IN:hi",
-      "query": "\"animal sentience\" OR \"rights of nature\" OR \"legal personhood\" animal"
-    },
-    {
-      "label": "Bengali (Bangladesh) 88",
-      "lang": "bn",
-      "standing": "press",
-      "hl": "bn",
-      "gl": "BD",
-      "ceid": "BD:bn",
-      "query": "\"algorithmic bias\" OR \"automated decision\" discrimination"
-    },
-    {
-      "label": "Bengali (Bangladesh) 89",
-      "lang": "bn",
-      "standing": "press",
-      "hl": "bn",
-      "gl": "BD",
-      "ceid": "BD:bn",
-      "query": "\"affirmative action\" OR reparations OR \"reserved seats\" ruling"
-    },
-    {
-      "label": "Bengali (Bangladesh) 90",
-      "lang": "bn",
-      "standing": "press",
-      "hl": "bn",
-      "gl": "BD",
-      "ceid": "BD:bn",
-      "query": "\"discrimination survey\" OR \"equality data\" OR discrimination prevalence study"
-    },
-    {
-      "label": "Indonesian 91",
-      "lang": "id",
-      "standing": "press",
-      "hl": "id",
-      "gl": "ID",
-      "ceid": "ID:id",
-      "query": "antisemitism OR islamophobia OR \"religious minority\" attack"
-    },
-    {
-      "label": "Indonesian 92",
-      "lang": "id",
-      "standing": "press",
-      "hl": "id",
-      "gl": "ID",
-      "ceid": "ID:id",
-      "query": "\"conversion therapy\" OR \"gender recognition\" OR transphobia"
-    },
-    {
-      "label": "Indonesian 93",
-      "lang": "id",
-      "standing": "press",
-      "hl": "id",
-      "gl": "ID",
-      "ceid": "ID:id",
-      "query": "\"child marriage\" OR \"female genital mutilation\" OR guardianship law women"
-    },
-    {
-      "label": "Japanese 94",
-      "lang": "ja",
-      "standing": "press",
-      "hl": "ja",
-      "gl": "JP",
-      "ceid": "JP:ja",
-      "query": "\"dwarfism\" OR \"height discrimination\" OR \"appearance discrimination\""
-    },
-    {
-      "label": "Japanese 95",
-      "lang": "ja",
-      "standing": "press",
-      "hl": "ja",
-      "gl": "JP",
-      "ceid": "JP:ja",
-      "query": "\"diversity programme\" scrapped OR \"DEI\" rollback OR equality rollback"
-    },
-    {
-      "label": "Japanese 96",
-      "lang": "ja",
-      "standing": "press",
-      "hl": "ja",
-      "gl": "JP",
-      "ceid": "JP:ja",
-      "query": "\"civil rights\" ruling OR \"landmark ruling\" discrimination"
-    },
-    {
-      "label": "Korean 97",
-      "lang": "ko",
-      "standing": "press",
-      "hl": "ko",
-      "gl": "KR",
-      "ceid": "KR:ko",
-      "query": "\"racial discrimination\" OR racism OR \"racial profiling\""
-    },
-    {
-      "label": "Korean 98",
-      "lang": "ko",
-      "standing": "press",
-      "hl": "ko",
-      "gl": "KR",
-      "ceid": "KR:ko",
-      "query": "sexism OR misogyny OR \"gender discrimination\" OR \"equal rights\" women"
-    },
-    {
-      "label": "Korean 99",
-      "lang": "ko",
-      "standing": "press",
-      "hl": "ko",
-      "gl": "KR",
-      "ceid": "KR:ko",
-      "query": "\"religious freedom\" OR \"religious persecution\" OR blasphemy law"
-    },
-    {
-      "label": "Turkish 100",
-      "lang": "tr",
-      "standing": "press",
-      "hl": "tr",
-      "gl": "TR",
-      "ceid": "TR:tr",
-      "query": "\"LGBT rights\" OR \"criminalise homosexuality\" OR \"same-sex\" ruling"
-    },
-    {
-      "label": "Turkish 101",
-      "lang": "tr",
-      "standing": "press",
-      "hl": "tr",
-      "gl": "TR",
-      "ceid": "TR:tr",
-      "query": "\"disability rights\" OR ableism OR accessibility ruling OR \"forced sterilisation\""
-    },
-    {
-      "label": "Turkish 102",
-      "lang": "tr",
-      "standing": "press",
-      "hl": "tr",
-      "gl": "TR",
-      "ceid": "TR:tr",
-      "query": "\"hate crime\" OR \"hate speech\" law OR \"incitement to hatred\""
-    },
-    {
-      "label": "Italian 103",
-      "lang": "it",
-      "standing": "press",
-      "hl": "it",
-      "gl": "IT",
-      "ceid": "IT:it",
-      "query": "\"ethnic minority\" discrimination OR \"ethnic cleansing\" OR statelessness"
-    },
-    {
-      "label": "Italian 104",
-      "lang": "it",
-      "standing": "press",
-      "hl": "it",
-      "gl": "IT",
-      "ceid": "IT:it",
-      "query": "\"caste discrimination\" OR colourism OR \"skin colour\" discrimination"
-    },
-    {
-      "label": "Italian 105",
-      "lang": "it",
-      "standing": "press",
-      "hl": "it",
-      "gl": "IT",
-      "ceid": "IT:it",
-      "query": "\"anti-discrimination\" law OR \"equality act\" OR \"equality commission\""
-    },
-    {
-      "label": "Dutch 106",
-      "lang": "nl",
-      "standing": "press",
-      "hl": "nl",
-      "gl": "NL",
-      "ceid": "NL:nl",
-      "query": "\"hiring discrimination\" OR \"employment discrimination\" OR \"workplace discrimination\""
-    },
-    {
-      "label": "Dutch 107",
-      "lang": "nl",
-      "standing": "press",
-      "hl": "nl",
-      "gl": "NL",
-      "ceid": "NL:nl",
-      "query": "\"housing discrimination\" OR redlining OR \"denied service\" discrimination"
-    },
-    {
-      "label": "Dutch 108",
-      "lang": "nl",
-      "standing": "press",
-      "hl": "nl",
-      "gl": "NL",
-      "ceid": "NL:nl",
-      "query": "xenophobia OR \"migrant\" discrimination OR asylum denied"
-    },
-    {
-      "label": "Polish 109",
-      "lang": "pl",
-      "standing": "press",
-      "hl": "pl",
-      "gl": "PL",
-      "ceid": "PL:pl",
-      "query": "\"institutional racism\" OR \"far-right\" infiltration police OR military"
-    },
-    {
-      "label": "Polish 110",
-      "lang": "pl",
-      "standing": "press",
-      "hl": "pl",
-      "gl": "PL",
-      "ceid": "PL:pl",
-      "query": "ageism OR \"age discrimination\" OR \"older workers\" excluded"
-    },
-    {
-      "label": "Polish 111",
-      "lang": "pl",
-      "standing": "press",
-      "hl": "pl",
-      "gl": "PL",
-      "ceid": "PL:pl",
-      "query": "\"animal sentience\" OR \"rights of nature\" OR \"legal personhood\" animal"
-    },
-    {
-      "label": "Swedish 112",
-      "lang": "sv",
-      "standing": "press",
-      "hl": "sv",
-      "gl": "SE",
-      "ceid": "SE:sv",
-      "query": "\"algorithmic bias\" OR \"automated decision\" discrimination"
-    },
-    {
-      "label": "Swedish 113",
-      "lang": "sv",
-      "standing": "press",
-      "hl": "sv",
-      "gl": "SE",
-      "ceid": "SE:sv",
-      "query": "\"affirmative action\" OR reparations OR \"reserved seats\" ruling"
-    },
-    {
-      "label": "Swedish 114",
-      "lang": "sv",
-      "standing": "press",
-      "hl": "sv",
-      "gl": "SE",
-      "ceid": "SE:sv",
-      "query": "\"discrimination survey\" OR \"equality data\" OR discrimination prevalence study"
-    },
-    {
-      "label": "Ukrainian 115",
-      "lang": "uk",
-      "standing": "press",
-      "hl": "uk",
-      "gl": "UA",
-      "ceid": "UA:uk",
-      "query": "antisemitism OR islamophobia OR \"religious minority\" attack"
-    },
-    {
-      "label": "Ukrainian 116",
-      "lang": "uk",
-      "standing": "press",
-      "hl": "uk",
-      "gl": "UA",
-      "ceid": "UA:uk",
-      "query": "\"conversion therapy\" OR \"gender recognition\" OR transphobia"
-    },
-    {
-      "label": "Ukrainian 117",
-      "lang": "uk",
-      "standing": "press",
-      "hl": "uk",
-      "gl": "UA",
-      "ceid": "UA:uk",
-      "query": "\"child marriage\" OR \"female genital mutilation\" OR guardianship law women"
-    },
-    {
-      "label": "Greek 118",
-      "lang": "el",
-      "standing": "press",
-      "hl": "el",
-      "gl": "GR",
-      "ceid": "GR:el",
-      "query": "\"dwarfism\" OR \"height discrimination\" OR \"appearance discrimination\""
-    },
-    {
-      "label": "Greek 119",
-      "lang": "el",
-      "standing": "press",
-      "hl": "el",
-      "gl": "GR",
-      "ceid": "GR:el",
-      "query": "\"diversity programme\" scrapped OR \"DEI\" rollback OR equality rollback"
-    },
-    {
-      "label": "Greek 120",
-      "lang": "el",
-      "standing": "press",
-      "hl": "el",
-      "gl": "GR",
-      "ceid": "GR:el",
-      "query": "\"civil rights\" ruling OR \"landmark ruling\" discrimination"
-    },
-    {
-      "label": "Persian 121",
-      "lang": "fa",
-      "standing": "press",
-      "hl": "fa",
-      "gl": "IR",
-      "ceid": "IR:fa",
-      "query": "\"racial discrimination\" OR racism OR \"racial profiling\""
-    },
-    {
-      "label": "Persian 122",
-      "lang": "fa",
-      "standing": "press",
-      "hl": "fa",
-      "gl": "IR",
-      "ceid": "IR:fa",
-      "query": "sexism OR misogyny OR \"gender discrimination\" OR \"equal rights\" women"
-    },
-    {
-      "label": "Persian 123",
-      "lang": "fa",
-      "standing": "press",
-      "hl": "fa",
-      "gl": "IR",
-      "ceid": "IR:fa",
-      "query": "\"religious freedom\" OR \"religious persecution\" OR blasphemy law"
-    },
-    {
-      "label": "Vietnamese 124",
-      "lang": "vi",
-      "standing": "press",
-      "hl": "vi",
-      "gl": "VN",
-      "ceid": "VN:vi",
-      "query": "\"LGBT rights\" OR \"criminalise homosexuality\" OR \"same-sex\" ruling"
-    },
-    {
-      "label": "Vietnamese 125",
-      "lang": "vi",
-      "standing": "press",
-      "hl": "vi",
-      "gl": "VN",
-      "ceid": "VN:vi",
-      "query": "\"disability rights\" OR ableism OR accessibility ruling OR \"forced sterilisation\""
-    },
-    {
-      "label": "Vietnamese 126",
-      "lang": "vi",
-      "standing": "press",
-      "hl": "vi",
-      "gl": "VN",
-      "ceid": "VN:vi",
-      "query": "\"hate crime\" OR \"hate speech\" law OR \"incitement to hatred\""
-    },
-    {
-      "label": "Thai 127",
-      "lang": "th",
-      "standing": "press",
-      "hl": "th",
-      "gl": "TH",
-      "ceid": "TH:th",
-      "query": "\"ethnic minority\" discrimination OR \"ethnic cleansing\" OR statelessness"
-    },
-    {
-      "label": "Thai 128",
-      "lang": "th",
-      "standing": "press",
-      "hl": "th",
-      "gl": "TH",
-      "ceid": "TH:th",
-      "query": "\"caste discrimination\" OR colourism OR \"skin colour\" discrimination"
-    },
-    {
-      "label": "Thai 129",
-      "lang": "th",
-      "standing": "press",
-      "hl": "th",
-      "gl": "TH",
-      "ceid": "TH:th",
-      "query": "\"anti-discrimination\" law OR \"equality act\" OR \"equality commission\""
-    },
-    {
-      "label": "Swahili (Kenya) 130",
-      "lang": "sw",
-      "standing": "press",
-      "hl": "sw",
-      "gl": "KE",
-      "ceid": "KE:sw",
-      "query": "\"hiring discrimination\" OR \"employment discrimination\" OR \"workplace discrimination\""
-    },
-    {
-      "label": "Swahili (Kenya) 131",
-      "lang": "sw",
-      "standing": "press",
-      "hl": "sw",
-      "gl": "KE",
-      "ceid": "KE:sw",
-      "query": "\"housing discrimination\" OR redlining OR \"denied service\" discrimination"
-    },
-    {
-      "label": "Swahili (Kenya) 132",
-      "lang": "sw",
-      "standing": "press",
-      "hl": "sw",
-      "gl": "KE",
-      "ceid": "KE:sw",
-      "query": "xenophobia OR \"migrant\" discrimination OR asylum denied"
-    },
-    {
-      "label": "Amharic (Ethiopia) 133",
-      "lang": "am",
-      "standing": "press",
-      "hl": "am",
-      "gl": "ET",
-      "ceid": "ET:am",
-      "query": "\"institutional racism\" OR \"far-right\" infiltration police OR military"
-    },
-    {
-      "label": "Amharic (Ethiopia) 134",
-      "lang": "am",
-      "standing": "press",
-      "hl": "am",
-      "gl": "ET",
-      "ceid": "ET:am",
-      "query": "ageism OR \"age discrimination\" OR \"older workers\" excluded"
-    },
-    {
-      "label": "Amharic (Ethiopia) 135",
-      "lang": "am",
-      "standing": "press",
-      "hl": "am",
-      "gl": "ET",
-      "ceid": "ET:am",
-      "query": "\"animal sentience\" OR \"rights of nature\" OR \"legal personhood\" animal"
-    },
-    {
-      "label": "Hausa (Nigeria) 136",
-      "lang": "ha",
-      "standing": "press",
-      "hl": "ha",
-      "gl": "NG",
-      "ceid": "NG:ha",
-      "query": "\"algorithmic bias\" OR \"automated decision\" discrimination"
-    },
-    {
-      "label": "Hausa (Nigeria) 137",
-      "lang": "ha",
-      "standing": "press",
-      "hl": "ha",
-      "gl": "NG",
-      "ceid": "NG:ha",
-      "query": "\"affirmative action\" OR reparations OR \"reserved seats\" ruling"
-    },
-    {
-      "label": "Hausa (Nigeria) 138",
-      "lang": "ha",
-      "standing": "press",
-      "hl": "ha",
-      "gl": "NG",
-      "ceid": "NG:ha",
-      "query": "\"discrimination survey\" OR \"equality data\" OR discrimination prevalence study"
-    }
-  ],
-  "events": [
-    {
-      "label": "UN treaty bodies and rapporteurs",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"special rapporteur\" discrimination OR \"treaty body\" finding OR \"universal periodic review\" concerns"
-    },
-    {
-      "label": "Court rulings on discrimination",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "court ruling discrimination OR \"european court of human rights\" discrimination OR \"supreme court\" equality"
-    },
-    {
-      "label": "Equality bodies and ombudsmen",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"equality commission\" report OR ombudsman discrimination finding OR \"equality body\" investigation"
-    },
-    {
-      "label": "CERD, CEDAW and CRPD",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "CERD review OR CEDAW committee OR CRPD committee findings discrimination"
-    },
-    {
-      "label": "Religious freedom monitoring",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"religious freedom\" report OR \"persecution of religious minorities\" OR blasphemy conviction"
-    },
-    {
-      "label": "Minority rights monitoring",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"minority rights\" report OR \"indigenous rights\" violation OR Roma discrimination report"
-    },
-    {
-      "label": "Disability rights monitoring",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"disability rights\" report OR institutionalisation disabled OR accessibility failure ruling"
-    },
-    {
-      "label": "LGBTQIA+ law worldwide",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"state-sponsored homophobia\" OR LGBT law change OR \"same-sex\" decriminalisation"
-    },
-    {
-      "label": "Discrimination measurement",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "discrimination survey findings OR \"experienced discrimination\" per cent OR prejudice study global"
-    },
-    {
-      "label": "Institutional infiltration",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"far-right\" network police OR military vetting extremism OR \"institutional racism\" inquiry"
-    },
-    {
-      "label": "Hate crime figures",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"hate crime\" figures OR \"hate crime\" statistics rise OR bias-motivated offences"
-    },
-    {
-      "label": "Animal standing in law",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"animal sentience\" law OR constitution animal welfare OR \"legal personhood\" court animal"
-    },
-    {
-      "label": "Division used politically",
-      "lang": "en",
-      "standing": "rights",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"dog whistle\" OR scapegoating minorities campaign OR \"divisive rhetoric\" election"
-    },
-    {
-      "label": "Workplace and pay cases",
-      "lang": "en",
-      "standing": "rights",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"employment tribunal\" discrimination OR \"equal pay\" claim OR \"class action\" discrimination"
-    },
-    {
-      "label": "Campaigns and remedies",
-      "lang": "en",
-      "standing": "rights",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"anti-racism\" campaign OR equality protest OR \"truth commission\" apology victims"
-    },
-    {
-      "label": "Rollback of protections",
-      "lang": "en",
-      "standing": "rights",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "equality protections rolled back OR \"anti-discrimination\" law repealed OR diversity programme banned"
-    }
-  ]
+ "_note": [
+  "Sources for the discrimination wire.",
+  "",
+  "direct: feeds proven working in the sibling Welcome to Your Galaxy repos.",
+  "  Nothing was invented — an untested feed URL reports itself unreachable on",
+  "  every harvest and quietly makes the coverage figure a lie.",
+  "",
+  "gnews: Google News locale searches. The harvester builds the URL from",
+  "  hl / gl / ceid. Twenty-four queries rotate across 46 locales so all ten of",
+  "  the named forms are covered rather than one repeated.",
+  "",
+  "events: subject searches for the treaty bodies, monitors and recurring",
+  "  publications that have no verified feed here.",
+  "",
+  "standing is provenance, not importance:",
+  "  official  courts, treaty bodies, equality commissions, UN bodies",
+  "  research  monitoring organisations and research",
+  "  press     general news across the locales",
+  "  rights    rights and community organisations",
+  "",
+  "Worth adding, with URLs you have opened: Minority Rights Group, Equal Rights",
+  "Trust, IDA (disability), Dalit rights organisations, national equality bodies."
+ ],
+ "direct": [
+  {
+   "name": "OHCHR — news",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.ohchr.org/en/rss/news"
+  },
+  {
+   "name": "UN News — Human Rights",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://news.un.org/feed/subscribe/en/news/topic/human-rights/feed/rss.xml"
+  },
+  {
+   "name": "UN Special Procedures",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.ohchr.org/en/rss/special-procedures"
+  },
+  {
+   "name": "European Court of Human Rights",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.echr.coe.int/rss"
+  },
+  {
+   "name": "Inter-American Commission on Human Rights",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.oas.org/en/iachr/rss/rss_pr.xml"
+  },
+  {
+   "name": "Council of Europe · anti-torture",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.coe.int/en/web/cpt/-/rss"
+  },
+  {
+   "name": "UNHCR",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.unhcr.org/rss.xml"
+  },
+  {
+   "name": "IOM Missing Migrants",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://missingmigrants.iom.int/rss.xml"
+  },
+  {
+   "name": "Human Rights Watch",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://www.hrw.org/rss/news"
+  },
+  {
+   "name": "Amnesty International",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://www.amnesty.org/en/rss/"
+  },
+  {
+   "name": "Freedom House",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://freedomhouse.org/rss.xml"
+  },
+  {
+   "name": "CIVICUS Monitor",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://monitor.civicus.org/feed/"
+  },
+  {
+   "name": "Business & Human Rights Resource Centre",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://www.business-humanrights.org/en/rss/"
+  },
+  {
+   "name": "ILGA World",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://ilga.org/feed"
+  },
+  {
+   "name": "European Roma Rights Centre",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.errc.org/rss"
+  },
+  {
+   "name": "Article 19",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.article19.org/feed/"
+  },
+  {
+   "name": "Front Line Defenders",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.frontlinedefenders.org/rss.xml"
+  },
+  {
+   "name": "World Organisation Against Torture (OMCT)",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.omct.org/en/rss"
+  },
+  {
+   "name": "Redress",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://redress.org/feed/"
+  },
+  {
+   "name": "Association for the Prevention of Torture",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.apt.ch/rss.xml"
+  },
+  {
+   "name": "Statewatch",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.statewatch.org/rss/"
+  },
+  {
+   "name": "Privacy International",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://privacyinternational.org/rss.xml"
+  },
+  {
+   "name": "EDRi",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://edri.org/feed/"
+  },
+  {
+   "name": "Access Now",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.accessnow.org/feed/"
+  },
+  {
+   "name": "APTN News (Canada)",
+   "lang": "en",
+   "standing": "rights",
+   "url": "https://www.aptnnews.ca/feed/"
+  }
+ ],
+ "gnews": [
+  {
+   "label": "English (US) · racism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "racism",
+   "query": "racial discrimination ruling OR racist abuse investigation OR institutional racism report"
+  },
+  {
+   "label": "English (US) · sexism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "sexism",
+   "query": "gender discrimination case OR sexual harassment ruling workplace OR misogyny report"
+  },
+  {
+   "label": "English (US) · migrants",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "migrants",
+   "query": "migrant workers discrimination OR refugees denied housing OR xenophobic attacks"
+  },
+  {
+   "label": "English (US) · ableism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "ableism",
+   "query": "disability discrimination ruling OR accessibility failure complaint"
+  },
+  {
+   "label": "English (US) · age",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "age",
+   "query": "age discrimination employment OR older workers rejected tribunal"
+  },
+  {
+   "label": "English (US) · work",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "work",
+   "query": "workplace discrimination tribunal OR hiring bias audit OR pay discrimination claim"
+  },
+  {
+   "label": "English (UK) · racism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "theme": "racism",
+   "query": "racial discrimination ruling OR racist abuse investigation OR institutional racism report"
+  },
+  {
+   "label": "English (UK) · sexism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "theme": "sexism",
+   "query": "gender discrimination case OR sexual harassment ruling workplace OR misogyny report"
+  },
+  {
+   "label": "English (UK) · migrants",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "theme": "migrants",
+   "query": "migrant workers discrimination OR refugees denied housing OR xenophobic attacks"
+  },
+  {
+   "label": "English (UK) · ableism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "theme": "ableism",
+   "query": "disability discrimination ruling OR accessibility failure complaint"
+  },
+  {
+   "label": "English (UK) · age",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "theme": "age",
+   "query": "age discrimination employment OR older workers rejected tribunal"
+  },
+  {
+   "label": "English (UK) · work",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "theme": "work",
+   "query": "workplace discrimination tribunal OR hiring bias audit OR pay discrimination claim"
+  },
+  {
+   "label": "English (India) · racism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "theme": "racism",
+   "query": "racial discrimination ruling OR racist abuse investigation OR institutional racism report"
+  },
+  {
+   "label": "English (India) · sexism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "theme": "sexism",
+   "query": "gender discrimination case OR sexual harassment ruling workplace OR misogyny report"
+  },
+  {
+   "label": "English (India) · migrants",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "theme": "migrants",
+   "query": "migrant workers discrimination OR refugees denied housing OR xenophobic attacks"
+  },
+  {
+   "label": "English (India) · ableism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "theme": "ableism",
+   "query": "disability discrimination ruling OR accessibility failure complaint"
+  },
+  {
+   "label": "English (India) · age",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "theme": "age",
+   "query": "age discrimination employment OR older workers rejected tribunal"
+  },
+  {
+   "label": "English (India) · work",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "theme": "work",
+   "query": "workplace discrimination tribunal OR hiring bias audit OR pay discrimination claim"
+  },
+  {
+   "label": "English (Nigeria) · racism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "theme": "racism",
+   "query": "racial discrimination ruling OR racist abuse investigation OR institutional racism report"
+  },
+  {
+   "label": "English (Nigeria) · sexism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "theme": "sexism",
+   "query": "gender discrimination case OR sexual harassment ruling workplace OR misogyny report"
+  },
+  {
+   "label": "English (Nigeria) · migrants",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "theme": "migrants",
+   "query": "migrant workers discrimination OR refugees denied housing OR xenophobic attacks"
+  },
+  {
+   "label": "English (Nigeria) · ableism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "theme": "ableism",
+   "query": "disability discrimination ruling OR accessibility failure complaint"
+  },
+  {
+   "label": "English (Nigeria) · age",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "theme": "age",
+   "query": "age discrimination employment OR older workers rejected tribunal"
+  },
+  {
+   "label": "English (Nigeria) · work",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "theme": "work",
+   "query": "workplace discrimination tribunal OR hiring bias audit OR pay discrimination claim"
+  },
+  {
+   "label": "English (Australia) · racism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "theme": "racism",
+   "query": "racial discrimination ruling OR racist abuse investigation OR institutional racism report"
+  },
+  {
+   "label": "English (Australia) · sexism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "theme": "sexism",
+   "query": "gender discrimination case OR sexual harassment ruling workplace OR misogyny report"
+  },
+  {
+   "label": "English (Australia) · migrants",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "theme": "migrants",
+   "query": "migrant workers discrimination OR refugees denied housing OR xenophobic attacks"
+  },
+  {
+   "label": "English (Australia) · ableism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "theme": "ableism",
+   "query": "disability discrimination ruling OR accessibility failure complaint"
+  },
+  {
+   "label": "English (Australia) · age",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "theme": "age",
+   "query": "age discrimination employment OR older workers rejected tribunal"
+  },
+  {
+   "label": "English (Australia) · work",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "theme": "work",
+   "query": "workplace discrimination tribunal OR hiring bias audit OR pay discrimination claim"
+  },
+  {
+   "label": "English (South Africa) · racism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en",
+   "theme": "racism",
+   "query": "racial discrimination ruling OR racist abuse investigation OR institutional racism report"
+  },
+  {
+   "label": "English (South Africa) · sexism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en",
+   "theme": "sexism",
+   "query": "gender discrimination case OR sexual harassment ruling workplace OR misogyny report"
+  },
+  {
+   "label": "English (South Africa) · migrants",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en",
+   "theme": "migrants",
+   "query": "migrant workers discrimination OR refugees denied housing OR xenophobic attacks"
+  },
+  {
+   "label": "English (South Africa) · ableism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en",
+   "theme": "ableism",
+   "query": "disability discrimination ruling OR accessibility failure complaint"
+  },
+  {
+   "label": "English (South Africa) · age",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en",
+   "theme": "age",
+   "query": "age discrimination employment OR older workers rejected tribunal"
+  },
+  {
+   "label": "English (South Africa) · work",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en",
+   "theme": "work",
+   "query": "workplace discrimination tribunal OR hiring bias audit OR pay discrimination claim"
+  },
+  {
+   "label": "Español (España) · racism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "racism",
+   "query": "discriminación racial fallo OR insultos racistas investigación OR racismo institucional informe"
+  },
+  {
+   "label": "Español (España) · sexism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "sexism",
+   "query": "discriminación por género caso OR acoso sexual laboral sentencia OR machismo informe"
+  },
+  {
+   "label": "Español (España) · migrants",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "migrants",
+   "query": "discriminación a migrantes OR refugiados sin vivienda negada OR ataques xenófobos"
+  },
+  {
+   "label": "Español (España) · ableism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "ableism",
+   "query": "discriminación por discapacidad sentencia OR falta de accesibilidad denuncia"
+  },
+  {
+   "label": "Español (España) · age",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "age",
+   "query": "discriminación por edad empleo OR trabajadores mayores rechazados"
+  },
+  {
+   "label": "Español (España) · work",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "work",
+   "query": "discriminación laboral tribunal OR sesgo en contratación auditoría"
+  },
+  {
+   "label": "Español (México) · racism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "theme": "racism",
+   "query": "discriminación racial fallo OR insultos racistas investigación OR racismo institucional informe"
+  },
+  {
+   "label": "Español (México) · sexism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "theme": "sexism",
+   "query": "discriminación por género caso OR acoso sexual laboral sentencia OR machismo informe"
+  },
+  {
+   "label": "Español (México) · migrants",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "theme": "migrants",
+   "query": "discriminación a migrantes OR refugiados sin vivienda negada OR ataques xenófobos"
+  },
+  {
+   "label": "Español (México) · ableism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "theme": "ableism",
+   "query": "discriminación por discapacidad sentencia OR falta de accesibilidad denuncia"
+  },
+  {
+   "label": "Español (México) · age",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "theme": "age",
+   "query": "discriminación por edad empleo OR trabajadores mayores rechazados"
+  },
+  {
+   "label": "Español (México) · work",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "theme": "work",
+   "query": "discriminación laboral tribunal OR sesgo en contratación auditoría"
+  },
+  {
+   "label": "Español (Argentina) · racism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "theme": "racism",
+   "query": "discriminación racial fallo OR insultos racistas investigación OR racismo institucional informe"
+  },
+  {
+   "label": "Español (Argentina) · sexism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "theme": "sexism",
+   "query": "discriminación por género caso OR acoso sexual laboral sentencia OR machismo informe"
+  },
+  {
+   "label": "Español (Argentina) · migrants",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "theme": "migrants",
+   "query": "discriminación a migrantes OR refugiados sin vivienda negada OR ataques xenófobos"
+  },
+  {
+   "label": "Español (Argentina) · ableism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "theme": "ableism",
+   "query": "discriminación por discapacidad sentencia OR falta de accesibilidad denuncia"
+  },
+  {
+   "label": "Español (Argentina) · age",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "theme": "age",
+   "query": "discriminación por edad empleo OR trabajadores mayores rechazados"
+  },
+  {
+   "label": "Español (Argentina) · work",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "theme": "work",
+   "query": "discriminación laboral tribunal OR sesgo en contratación auditoría"
+  },
+  {
+   "label": "Português (Brasil) · racism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "racism",
+   "query": "discriminação racial decisão OR injúria racial investigação OR racismo institucional relatório"
+  },
+  {
+   "label": "Português (Brasil) · sexism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "sexism",
+   "query": "discriminação de género caso OR assédio sexual no trabalho decisão"
+  },
+  {
+   "label": "Português (Brasil) · migrants",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "migrants",
+   "query": "discriminação contra migrantes OR refugiados negada habitação OR ataques xenófobos"
+  },
+  {
+   "label": "Português (Brasil) · ableism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "ableism",
+   "query": "discriminação por deficiência decisão OR falta de acessibilidade queixa"
+  },
+  {
+   "label": "Português (Brasil) · age",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "age",
+   "query": "discriminação por idade emprego OR trabalhadores mais velhos rejeitados"
+  },
+  {
+   "label": "Português (Brasil) · work",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "work",
+   "query": "discriminação no trabalho tribunal OR viés na contratação auditoria"
+  },
+  {
+   "label": "Português (Portugal) · racism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-PT",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "theme": "racism",
+   "query": "discriminação racial decisão OR injúria racial investigação OR racismo institucional relatório"
+  },
+  {
+   "label": "Português (Portugal) · sexism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-PT",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "theme": "sexism",
+   "query": "discriminação de género caso OR assédio sexual no trabalho decisão"
+  },
+  {
+   "label": "Português (Portugal) · migrants",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-PT",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "theme": "migrants",
+   "query": "discriminação contra migrantes OR refugiados negada habitação OR ataques xenófobos"
+  },
+  {
+   "label": "Português (Portugal) · ableism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-PT",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "theme": "ableism",
+   "query": "discriminação por deficiência decisão OR falta de acessibilidade queixa"
+  },
+  {
+   "label": "Português (Portugal) · age",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-PT",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "theme": "age",
+   "query": "discriminação por idade emprego OR trabalhadores mais velhos rejeitados"
+  },
+  {
+   "label": "Português (Portugal) · work",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-PT",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "theme": "work",
+   "query": "discriminação no trabalho tribunal OR viés na contratação auditoria"
+  },
+  {
+   "label": "Français · racism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "racism",
+   "query": "discrimination raciale décision OR injures racistes enquête OR racisme institutionnel rapport"
+  },
+  {
+   "label": "Français · sexism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "sexism",
+   "query": "discrimination de genre affaire OR harcèlement sexuel au travail décision OR sexisme rapport"
+  },
+  {
+   "label": "Français · migrants",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "migrants",
+   "query": "discrimination des travailleurs migrants OR logement refusé aux réfugiés OR attaques xénophobes"
+  },
+  {
+   "label": "Français · ableism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "ableism",
+   "query": "discrimination liée au handicap décision OR défaut d'accessibilité plainte"
+  },
+  {
+   "label": "Français · age",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "age",
+   "query": "discrimination liée à l'âge emploi OR seniors écartés recrutement"
+  },
+  {
+   "label": "Français · work",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "work",
+   "query": "discrimination à l'embauche testing OR discrimination au travail tribunal"
+  },
+  {
+   "label": "Français (Canada) · racism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "theme": "racism",
+   "query": "discrimination raciale décision OR injures racistes enquête OR racisme institutionnel rapport"
+  },
+  {
+   "label": "Français (Canada) · sexism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "theme": "sexism",
+   "query": "discrimination de genre affaire OR harcèlement sexuel au travail décision OR sexisme rapport"
+  },
+  {
+   "label": "Français (Canada) · migrants",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "theme": "migrants",
+   "query": "discrimination des travailleurs migrants OR logement refusé aux réfugiés OR attaques xénophobes"
+  },
+  {
+   "label": "Français (Canada) · ableism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "theme": "ableism",
+   "query": "discrimination liée au handicap décision OR défaut d'accessibilité plainte"
+  },
+  {
+   "label": "Français (Canada) · age",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "theme": "age",
+   "query": "discrimination liée à l'âge emploi OR seniors écartés recrutement"
+  },
+  {
+   "label": "Français (Canada) · work",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "theme": "work",
+   "query": "discrimination à l'embauche testing OR discrimination au travail tribunal"
+  },
+  {
+   "label": "Deutsch · racism",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "racism",
+   "query": "Rassismus Diskriminierung Urteil OR rassistische Beleidigung Ermittlungen OR institutioneller Rassismus"
+  },
+  {
+   "label": "Deutsch · sexism",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "sexism",
+   "query": "Geschlechterdiskriminierung Fall OR sexuelle Belästigung Arbeitsplatz Urteil OR Sexismus Bericht"
+  },
+  {
+   "label": "Deutsch · migrants",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "migrants",
+   "query": "Diskriminierung von Migranten OR Wohnung verweigert Geflüchtete OR fremdenfeindliche Angriffe"
+  },
+  {
+   "label": "Deutsch · ableism",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "ableism",
+   "query": "Diskriminierung wegen Behinderung Urteil OR fehlende Barrierefreiheit Beschwerde"
+  },
+  {
+   "label": "Deutsch · age",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "age",
+   "query": "Altersdiskriminierung Beschäftigung OR ältere Bewerber abgelehnt"
+  },
+  {
+   "label": "Deutsch · work",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "work",
+   "query": "Diskriminierung am Arbeitsplatz Gericht OR Benachteiligung bei Einstellung Test"
+  },
+  {
+   "label": "Italiano · racism",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "racism",
+   "query": "discriminazione razziale sentenza OR insulti razzisti indagine OR razzismo istituzionale"
+  },
+  {
+   "label": "Italiano · sexism",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "sexism",
+   "query": "discriminazione di genere caso OR molestie sessuali sul lavoro sentenza"
+  },
+  {
+   "label": "Italiano · migrants",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "migrants",
+   "query": "discriminazione dei migranti OR alloggio negato ai rifugiati OR aggressioni xenofobe"
+  },
+  {
+   "label": "Italiano · ableism",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "ableism",
+   "query": "discriminazione per disabilità sentenza OR barriere architettoniche denuncia"
+  },
+  {
+   "label": "Italiano · age",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "age",
+   "query": "discriminazione per età lavoro OR lavoratori anziani esclusi"
+  },
+  {
+   "label": "Italiano · work",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "work",
+   "query": "discriminazione sul lavoro tribunale OR pregiudizi nelle assunzioni"
+  },
+  {
+   "label": "Nederlands · racism",
+   "lang": "nl",
+   "standing": "press",
+   "hl": "nl",
+   "gl": "NL",
+   "ceid": "NL:nl",
+   "theme": "racism",
+   "query": "rassendiscriminatie uitspraak OR racistische beledigingen onderzoek OR institutioneel racisme"
+  },
+  {
+   "label": "Nederlands · sexism",
+   "lang": "nl",
+   "standing": "press",
+   "hl": "nl",
+   "gl": "NL",
+   "ceid": "NL:nl",
+   "theme": "sexism",
+   "query": "genderdiscriminatie zaak OR seksuele intimidatie op het werk uitspraak"
+  },
+  {
+   "label": "Polski · racism",
+   "lang": "pl",
+   "standing": "press",
+   "hl": "pl",
+   "gl": "PL",
+   "ceid": "PL:pl",
+   "theme": "racism",
+   "query": "dyskryminacja rasowa wyrok OR rasistowskie obelgi śledztwo"
+  },
+  {
+   "label": "Polski · sexism",
+   "lang": "pl",
+   "standing": "press",
+   "hl": "pl",
+   "gl": "PL",
+   "ceid": "PL:pl",
+   "theme": "sexism",
+   "query": "dyskryminacja ze względu na płeć sprawa OR molestowanie seksualne w pracy"
+  },
+  {
+   "label": "Polski · migrants",
+   "lang": "pl",
+   "standing": "press",
+   "hl": "pl",
+   "gl": "PL",
+   "ceid": "PL:pl",
+   "theme": "migrants",
+   "query": "dyskryminacja migrantów OR ataki ksenofobiczne"
+  },
+  {
+   "label": "Polski · work",
+   "lang": "pl",
+   "standing": "press",
+   "hl": "pl",
+   "gl": "PL",
+   "ceid": "PL:pl",
+   "theme": "work",
+   "query": "dyskryminacja w pracy sąd OR uprzedzenia w rekrutacji"
+  },
+  {
+   "label": "Русский · racism",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "theme": "racism",
+   "query": "расовая дискриминация решение OR расистские оскорбления расследование"
+  },
+  {
+   "label": "Русский · sexism",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "theme": "sexism",
+   "query": "гендерная дискриминация дело OR сексуальные домогательства на работе"
+  },
+  {
+   "label": "Русский · migrants",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "theme": "migrants",
+   "query": "дискриминация мигрантов OR ксенофобные нападения"
+  },
+  {
+   "label": "Русский · ableism",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "theme": "ableism",
+   "query": "дискриминация по инвалидности решение OR отсутствие доступной среды"
+  },
+  {
+   "label": "Русский · age",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "theme": "age",
+   "query": "возрастная дискриминация занятость OR отказ пожилым соискателям"
+  },
+  {
+   "label": "Русский · work",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "theme": "work",
+   "query": "дискриминация на работе суд OR предвзятость при найме"
+  },
+  {
+   "label": "Türkçe · racism",
+   "lang": "tr",
+   "standing": "press",
+   "hl": "tr",
+   "gl": "TR",
+   "ceid": "TR:tr",
+   "theme": "racism",
+   "query": "ırk ayrımcılığı karar OR ırkçı hakaret soruşturma"
+  },
+  {
+   "label": "Türkçe · sexism",
+   "lang": "tr",
+   "standing": "press",
+   "hl": "tr",
+   "gl": "TR",
+   "ceid": "TR:tr",
+   "theme": "sexism",
+   "query": "cinsiyet ayrımcılığı dava OR işyerinde cinsel taciz karar"
+  },
+  {
+   "label": "Türkçe · migrants",
+   "lang": "tr",
+   "standing": "press",
+   "hl": "tr",
+   "gl": "TR",
+   "ceid": "TR:tr",
+   "theme": "migrants",
+   "query": "göçmen işçilere ayrımcılık OR yabancı düşmanı saldırılar"
+  },
+  {
+   "label": "Türkçe · work",
+   "lang": "tr",
+   "standing": "press",
+   "hl": "tr",
+   "gl": "TR",
+   "ceid": "TR:tr",
+   "theme": "work",
+   "query": "işyerinde ayrımcılık mahkeme OR işe alımda önyargı"
+  },
+  {
+   "label": "Bahasa Indonesia · racism",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "theme": "racism",
+   "query": "diskriminasi rasial putusan OR ujaran rasis penyelidikan"
+  },
+  {
+   "label": "Bahasa Indonesia · sexism",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "theme": "sexism",
+   "query": "diskriminasi gender kasus OR pelecehan seksual di tempat kerja"
+  },
+  {
+   "label": "Bahasa Indonesia · migrants",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "theme": "migrants",
+   "query": "diskriminasi pekerja migran OR serangan xenofobia"
+  },
+  {
+   "label": "Bahasa Indonesia · work",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "theme": "work",
+   "query": "diskriminasi di tempat kerja pengadilan OR bias perekrutan"
+  },
+  {
+   "label": "日本語 · racism",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "racism",
+   "query": "人種差別 判決 OR 差別発言 調査 OR 構造的差別 報告"
+  },
+  {
+   "label": "日本語 · sexism",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "sexism",
+   "query": "性差別 訴訟 OR 職場のセクハラ 判決"
+  },
+  {
+   "label": "日本語 · migrants",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "migrants",
+   "query": "移民 差別 OR 外国人 入居拒否 OR 排外主義 attacks"
+  },
+  {
+   "label": "日本語 · ableism",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "ableism",
+   "query": "障害者差別 判決 OR 合理的配慮 不提供"
+  },
+  {
+   "label": "日本語 · age",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "age",
+   "query": "年齢差別 雇用 OR 高年齢者 採用拒否"
+  },
+  {
+   "label": "日本語 · work",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "work",
+   "query": "職場 差別 訴訟 OR 採用差別 調査"
+  },
+  {
+   "label": "한국어 · racism",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "racism",
+   "query": "인종차별 판결 OR 인종 혐오 발언 수사"
+  },
+  {
+   "label": "한국어 · sexism",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "sexism",
+   "query": "성차별 소송 OR 직장 내 성희롱 판결"
+  },
+  {
+   "label": "한국어 · migrants",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "migrants",
+   "query": "이주노동자 차별 OR 외국인 혐오 공격"
+  },
+  {
+   "label": "한국어 · ableism",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "ableism",
+   "query": "장애인 차별 판결 OR 편의시설 미비 진정"
+  },
+  {
+   "label": "한국어 · age",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "age",
+   "query": "연령 차별 고용 OR 고령 구직자 배제"
+  },
+  {
+   "label": "한국어 · work",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "work",
+   "query": "직장 내 차별 소송 OR 채용 차별 조사"
+  },
+  {
+   "label": "中文 (台灣) · racism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "racism",
+   "query": "種族歧視 判決 OR 種族侮辱 調查 OR 制度性歧視"
+  },
+  {
+   "label": "中文 (台灣) · sexism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "sexism",
+   "query": "性別歧視 案件 OR 職場性騷擾 判決"
+  },
+  {
+   "label": "中文 (台灣) · migrants",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "migrants",
+   "query": "移民 歧視 OR 外國人 租房被拒 OR 排外 襲擊"
+  },
+  {
+   "label": "中文 (台灣) · ableism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "ableism",
+   "query": "殘障歧視 判決 OR 無障礙設施 缺失 投訴"
+  },
+  {
+   "label": "中文 (台灣) · age",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "age",
+   "query": "年齡歧視 就業 OR 大齡求職者 被拒"
+  },
+  {
+   "label": "中文 (台灣) · work",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "work",
+   "query": "職場歧視 訴訟 OR 招聘歧視 調查"
+  },
+  {
+   "label": "中文 (香港) · racism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "theme": "racism",
+   "query": "種族歧視 判決 OR 種族侮辱 調查 OR 制度性歧視"
+  },
+  {
+   "label": "中文 (香港) · sexism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "theme": "sexism",
+   "query": "性別歧視 案件 OR 職場性騷擾 判決"
+  },
+  {
+   "label": "中文 (香港) · migrants",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "theme": "migrants",
+   "query": "移民 歧視 OR 外國人 租房被拒 OR 排外 襲擊"
+  },
+  {
+   "label": "中文 (香港) · ableism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "theme": "ableism",
+   "query": "殘障歧視 判決 OR 無障礙設施 缺失 投訴"
+  },
+  {
+   "label": "中文 (香港) · age",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "theme": "age",
+   "query": "年齡歧視 就業 OR 大齡求職者 被拒"
+  },
+  {
+   "label": "中文 (香港) · work",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "theme": "work",
+   "query": "職場歧視 訴訟 OR 招聘歧視 調查"
+  },
+  {
+   "label": "العربية (مصر) · racism",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar",
+   "theme": "racism",
+   "query": "التمييز العنصري حكم OR إساءة عنصرية تحقيق"
+  },
+  {
+   "label": "العربية (مصر) · sexism",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar",
+   "theme": "sexism",
+   "query": "التمييز بين الجنسين قضية OR التحرش الجنسي في العمل"
+  },
+  {
+   "label": "العربية (مصر) · migrants",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar",
+   "theme": "migrants",
+   "query": "التمييز ضد العمال المهاجرين OR اعتداءات كراهية الأجانب"
+  },
+  {
+   "label": "العربية (مصر) · ableism",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar",
+   "theme": "ableism",
+   "query": "التمييز ضد ذوي الإعاقة حكم OR غياب إمكانية الوصول"
+  },
+  {
+   "label": "العربية (الإمارات) · racism",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "AE",
+   "ceid": "AE:ar",
+   "theme": "racism",
+   "query": "التمييز العنصري حكم OR إساءة عنصرية تحقيق"
+  },
+  {
+   "label": "العربية (الإمارات) · sexism",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "AE",
+   "ceid": "AE:ar",
+   "theme": "sexism",
+   "query": "التمييز بين الجنسين قضية OR التحرش الجنسي في العمل"
+  },
+  {
+   "label": "العربية (الإمارات) · migrants",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "AE",
+   "ceid": "AE:ar",
+   "theme": "migrants",
+   "query": "التمييز ضد العمال المهاجرين OR اعتداءات كراهية الأجانب"
+  },
+  {
+   "label": "العربية (الإمارات) · ableism",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "AE",
+   "ceid": "AE:ar",
+   "theme": "ableism",
+   "query": "التمييز ضد ذوي الإعاقة حكم OR غياب إمكانية الوصول"
+  },
+  {
+   "label": "Ελληνικά · racism",
+   "lang": "el",
+   "standing": "press",
+   "hl": "el",
+   "gl": "GR",
+   "ceid": "GR:el",
+   "theme": "racism",
+   "query": "φυλετικές διακρίσεις απόφαση OR ρατσιστική επίθεση έρευνα"
+  },
+  {
+   "label": "Ελληνικά · sexism",
+   "lang": "el",
+   "standing": "press",
+   "hl": "el",
+   "gl": "GR",
+   "ceid": "GR:el",
+   "theme": "sexism",
+   "query": "διακρίσεις λόγω φύλου υπόθεση OR σεξουαλική παρενόχληση στην εργασία"
+  },
+  {
+   "label": "Ελληνικά · migrants",
+   "lang": "el",
+   "standing": "press",
+   "hl": "el",
+   "gl": "GR",
+   "ceid": "GR:el",
+   "theme": "migrants",
+   "query": "διακρίσεις σε μετανάστες OR ξενοφοβικές επιθέσεις"
+  },
+  {
+   "label": "Ελληνικά · work",
+   "lang": "el",
+   "standing": "press",
+   "hl": "el",
+   "gl": "GR",
+   "ceid": "GR:el",
+   "theme": "work",
+   "query": "διακρίσεις στην εργασία δικαστήριο"
+  },
+  {
+   "label": "Svenska · racism",
+   "lang": "sv",
+   "standing": "press",
+   "hl": "sv",
+   "gl": "SE",
+   "ceid": "SE:sv",
+   "theme": "racism",
+   "query": "rasdiskriminering dom OR rasistiska påhopp utredning"
+  },
+  {
+   "label": "Svenska · sexism",
+   "lang": "sv",
+   "standing": "press",
+   "hl": "sv",
+   "gl": "SE",
+   "ceid": "SE:sv",
+   "theme": "sexism",
+   "query": "könsdiskriminering fall OR sexuella trakasserier på jobbet"
+  },
+  {
+   "label": "Svenska · migrants",
+   "lang": "sv",
+   "standing": "press",
+   "hl": "sv",
+   "gl": "SE",
+   "ceid": "SE:sv",
+   "theme": "migrants",
+   "query": "diskriminering av migranter OR främlingsfientliga attacker"
+  },
+  {
+   "label": "Kiswahili · racism",
+   "lang": "sw",
+   "standing": "press",
+   "hl": "sw",
+   "gl": "KE",
+   "ceid": "KE:sw",
+   "theme": "racism",
+   "query": "ubaguzi wa rangi uamuzi OR matusi ya kibaguzi uchunguzi"
+  },
+  {
+   "label": "English (US) · classism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "classism",
+   "query": "class discrimination hiring accent OR socio-economic background barrier profession OR class ceiling study"
+  },
+  {
+   "label": "Español · classism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "classism",
+   "query": "discriminación por clase social contratación OR barreras por origen socioeconómico profesión"
+  },
+  {
+   "label": "Português (BR) · classism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "classism",
+   "query": "discriminação por classe social contratação OR barreiras por origem socioeconómica profissão"
+  },
+  {
+   "label": "Français · classism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "classism",
+   "query": "discrimination sociale à l'embauche OR barrières liées à l'origine sociale profession"
+  },
+  {
+   "label": "Deutsch · classism",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "classism",
+   "query": "Diskriminierung nach sozialer Herkunft Einstellung OR soziale Herkunft Barriere Beruf"
+  },
+  {
+   "label": "Italiano · classism",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "classism",
+   "query": "discriminazione per classe sociale assunzioni OR barriere di origine sociale professione"
+  },
+  {
+   "label": "日本語 · classism",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "classism",
+   "query": "出身階層 就職 差別 OR 家庭環境 職業 障壁"
+  },
+  {
+   "label": "한국어 · classism",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "classism",
+   "query": "출신 계층 채용 차별 OR 사회경제적 배경 장벽"
+  },
+  {
+   "label": "中文 · classism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "classism",
+   "query": "出身 階層 就業 歧視 OR 家庭背景 職業 壁壘"
+  },
+  {
+   "label": "English (US) · intellectual",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "intellectual",
+   "query": "learning disability discrimination OR neurodiversity workplace adjustments refused OR autistic employees tribunal"
+  },
+  {
+   "label": "Español · intellectual",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "intellectual",
+   "query": "discriminación por discapacidad intelectual OR ajustes por neurodivergencia denegados"
+  },
+  {
+   "label": "Português (BR) · intellectual",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "intellectual",
+   "query": "discriminação por deficiência intelectual OR adaptações por neurodivergência recusadas"
+  },
+  {
+   "label": "Français · intellectual",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "intellectual",
+   "query": "discrimination liée au handicap intellectuel OR aménagements refusés neurodiversité"
+  },
+  {
+   "label": "Deutsch · intellectual",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "intellectual",
+   "query": "Diskriminierung wegen Lernbehinderung OR verweigerte Anpassungen Neurodiversität"
+  },
+  {
+   "label": "Italiano · intellectual",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "intellectual",
+   "query": "discriminazione per disabilità intellettiva OR adattamenti negati neurodivergenza"
+  },
+  {
+   "label": "日本語 · intellectual",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "intellectual",
+   "query": "知的障害 差別 OR 発達障害 合理的配慮 拒否"
+  },
+  {
+   "label": "한국어 · intellectual",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "intellectual",
+   "query": "지적장애 차별 OR 발달장애 편의제공 거부"
+  },
+  {
+   "label": "中文 · intellectual",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "intellectual",
+   "query": "智力障礙 歧視 OR 神經多樣性 合理便利 拒絕"
+  },
+  {
+   "label": "English (US) · speciesism",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "speciesism",
+   "query": "animal legal personhood case OR speciesism argument court OR animal rights ruling standing"
+  },
+  {
+   "label": "Español · speciesism",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "speciesism",
+   "query": "personalidad jurídica de los animales caso OR especismo argumento tribunal"
+  },
+  {
+   "label": "Português (BR) · speciesism",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "speciesism",
+   "query": "personalidade jurídica dos animais caso OR especismo argumento tribunal"
+  },
+  {
+   "label": "Français · speciesism",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "speciesism",
+   "query": "personnalité juridique des animaux affaire OR spécisme argument tribunal"
+  },
+  {
+   "label": "Deutsch · speciesism",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "speciesism",
+   "query": "Rechtspersönlichkeit für Tiere Fall OR Speziesismus Argument Gericht"
+  },
+  {
+   "label": "Italiano · speciesism",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "theme": "speciesism",
+   "query": "personalità giuridica degli animali caso OR specismo argomento tribunale"
+  },
+  {
+   "label": "日本語 · speciesism",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "speciesism",
+   "query": "動物の法的地位 訴訟 OR 種差別 議論 裁判"
+  },
+  {
+   "label": "한국어 · speciesism",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "theme": "speciesism",
+   "query": "동물 법적 지위 소송 OR 종차별 논쟁 법원"
+  },
+  {
+   "label": "中文 · speciesism",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "speciesism",
+   "query": "動物 法律主體資格 案件 OR 物種歧視 訴訟"
+  }
+ ],
+ "events": [
+  {
+   "label": "UN treaty bodies and rapporteurs",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"special rapporteur\" discrimination OR \"treaty body\" finding OR \"universal periodic review\" concerns"
+  },
+  {
+   "label": "Court rulings on discrimination",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "court ruling discrimination OR \"european court of human rights\" discrimination OR \"supreme court\" equality"
+  },
+  {
+   "label": "Equality bodies and ombudsmen",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"equality commission\" report OR ombudsman discrimination finding OR \"equality body\" investigation"
+  },
+  {
+   "label": "CERD, CEDAW and CRPD",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "CERD review OR CEDAW committee OR CRPD committee findings discrimination"
+  },
+  {
+   "label": "Religious freedom monitoring",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"religious freedom\" report OR \"persecution of religious minorities\" OR blasphemy conviction"
+  },
+  {
+   "label": "Minority rights monitoring",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"minority rights\" report OR \"indigenous rights\" violation OR Roma discrimination report"
+  },
+  {
+   "label": "Disability rights monitoring",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"disability rights\" report OR institutionalisation disabled OR accessibility failure ruling"
+  },
+  {
+   "label": "LGBTQIA+ law worldwide",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"state-sponsored homophobia\" OR LGBT law change OR \"same-sex\" decriminalisation"
+  },
+  {
+   "label": "Discrimination measurement",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "discrimination survey findings OR \"experienced discrimination\" per cent OR prejudice study global"
+  },
+  {
+   "label": "Institutional infiltration",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"far-right\" network police OR military vetting extremism OR \"institutional racism\" inquiry"
+  },
+  {
+   "label": "Hate crime figures",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"hate crime\" figures OR \"hate crime\" statistics rise OR bias-motivated offences"
+  },
+  {
+   "label": "Animal standing in law",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"animal sentience\" law OR constitution animal welfare OR \"legal personhood\" court animal"
+  },
+  {
+   "label": "Division used politically",
+   "lang": "en",
+   "standing": "rights",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"dog whistle\" OR scapegoating minorities campaign OR \"divisive rhetoric\" election"
+  },
+  {
+   "label": "Workplace and pay cases",
+   "lang": "en",
+   "standing": "rights",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"employment tribunal\" discrimination OR \"equal pay\" claim OR \"class action\" discrimination"
+  },
+  {
+   "label": "Campaigns and remedies",
+   "lang": "en",
+   "standing": "rights",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"anti-racism\" campaign OR equality protest OR \"truth commission\" apology victims"
+  },
+  {
+   "label": "Rollback of protections",
+   "lang": "en",
+   "standing": "rights",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "equality protections rolled back OR \"anti-discrimination\" law repealed OR diversity programme banned"
+  }
+ ]
 }

@@ -38,13 +38,27 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 
+# The shared gazetteer. Placement used to be each wire's own short country
+# table, which put most of every wire in a counter marked "unplaced"; this is
+# the fleet's common one, and it is optional at import so a harvest still runs
+# if the data file has not been fetched yet.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    import galaxy_places
+    _GAZETTEER = True
+except Exception as _exc:                       # noqa: BLE001
+    print("  ! gazetteer unavailable (%s); falling back to the local table"
+          % _exc, file=sys.stderr)
+    galaxy_places = None
+    _GAZETTEER = False
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 SOURCES_PATH = os.path.join(HERE, "sources_discrimination.json")
 OUT_PATH = os.path.join(HERE, "wire_discrimination.json")
 
 RETAIN_DAYS = 45
 MAX_ITEMS = 1200
-WORKERS = 10         # a few hundred wires now
+WORKERS = 14         # 26 languages, each asked in its own
 NOTABLE_SCORE = 3       # at or above this a story is marked as consequential
 
 # --------------------------------------------------------------------------
@@ -68,9 +82,24 @@ def build_gnews_url(loc):
     return ("https://news.google.com/rss/search?q=" + urllib.parse.quote(q) +
             "&hl=" + loc["hl"] + "&gl=" + loc["gl"] + "&ceid=" + loc["ceid"])
 
+READ_BUDGET_MIN = 35          # minutes spent reading wires
+
+# The wall-clock budget for reading wires. Past it the remaining sources are
+# recorded unreachable and the harvest finishes on what it has, because the
+# wire is only written at the end of run() and a job killed by the workflow
+# timeout commits nothing at all — which is how a feed gets stuck stale.
+DEADLINE = None
+
+
+def out_of_time():
+    return DEADLINE is not None and time.monotonic() > DEADLINE
+
+
 def fetch(url, tries=3):
     last = None
     for attempt in range(tries):
+        if out_of_time():
+            return None
         try:
             req = urllib.request.Request(url, headers={
                 "User-Agent": USER_AGENT,
@@ -83,6 +112,16 @@ def fetch(url, tries=3):
                 if resp.headers.get("Content-Encoding") == "gzip":
                     raw = gzip.GzipFile(fileobj=io.BytesIO(raw)).read()
                 return raw
+        except urllib.error.HTTPError as exc:
+            last = exc
+            # Being rate-limited or refused is an answer, not a hiccup. Trying
+            # the same query twice more against the same limiter spends eighty
+            # seconds of a worker slot to be told the same thing, and deepens
+            # the throttle for every other query in the run.
+            if exc.code in (403, 429, 451):
+                time.sleep(1.5)
+                break
+            time.sleep(1.5 * (attempt + 1))
         except Exception as exc:                       # noqa: BLE001 — report, don't crash the run
             last = exc
             time.sleep(1.5 * (attempt + 1))
@@ -733,6 +772,182 @@ DECIDED_C = _compile_all(DECIDED)
 INSTITUTIONAL_C = _compile_all(INSTITUTIONAL)
 MEASURED_C = _compile_all(MEASURED)
 PENDING_C = _compile_all(PENDING)
+# ------------------------------------------------------------------
+# The subjects, in the languages the queries now ask in.
+#
+# Built alongside the queries rather than after them: localised
+# queries against English-only subjects fetch stories the subject
+# gate then refuses, which reads as an improvement in the source
+# count and a worsening in everything else.
+# ------------------------------------------------------------------
+LOCAL_TERMS = {
+    "ableism": [
+        ("barriere architettoniche denuncia", None), ("discriminación por discapacidad", None),
+        ("discrimination liée au", None), ("discriminazione per disabilità", None),
+        ("discriminação por deficiência", None), ("diskriminierung wegen behinderung", None),
+        ("défaut d'accessibilité plainte", None), ("falta de accesibilidad", None),
+        ("falta de acessibilidade", None), ("fehlende barrierefreiheit beschwerde", None),
+        ("дискриминация по инвалидности", None), ("отсутствие доступной среды", None),
+        ("التمييز ضد ذوي", None), ("غياب إمكانية الوصول", None),
+        ("合理的配慮 不提供", None), ("无障碍设施 缺失 投诉", None),
+        ("残障歧视 判决", None), ("障害者差別 判決", None),
+        ("장애인 차별 판결", None), ("편의시설 미비 진정", None),
+    ],
+    "age": [
+        ("altersdiskriminierung beschäftigung", None), ("discriminación por edad", None),
+        ("discrimination liée à", None), ("discriminazione per età", None),
+        ("discriminação por idade", None), ("lavoratori anziani esclusi", None),
+        ("seniors écartés recrutement", None), ("trabajadores mayores rechazados", None),
+        ("trabalhadores mais velhos", None), ("ältere bewerber abgelehnt", None),
+        ("возрастная дискриминация занятость", None), ("отказ пожилым соискателям", None),
+        ("大龄求职者 被拒", None), ("年齢差別 雇用", None),
+        ("年龄歧视 就业", None), ("高年齢者 採用拒否", None),
+        ("고령 구직자 배제", None), ("연령 차별 고용", None),
+    ],
+    "migrants": [
+        ("aggressioni xenofobe", None), ("alloggio negato ai", None),
+        ("ataki ksenofobiczne", None), ("ataques xenófobos", None),
+        ("attaques xénophobes", None), ("discriminación a migrantes", None),
+        ("discrimination des travailleurs", None), ("discriminazione dei migranti", None),
+        ("discriminação contra migrantes", None), ("diskriminasi pekerja migran", None),
+        ("diskriminering av migranter", None), ("diskriminierung von migranten", None),
+        ("dyskryminacja migrantów", None), ("fremdenfeindliche angriffe", None),
+        ("främlingsfientliga attacker", None), ("göçmen işçilere ayrımcılık", None),
+        ("logement refusé aux", None), ("refugiados negada habitação", None),
+        ("refugiados sin vivienda", None), ("serangan xenofobia", None),
+        ("wohnung verweigert geflüchtete", None), ("yabancı düşmanı saldırılar", None),
+        ("διακρίσεις σε μετανάστες", None), ("ξενοφοβικές επιθέσεις", None),
+        ("дискриминация мигрантов", None), ("ксенофобные нападения", None),
+        ("اعتداءات كراهية الأجانب", None), ("التمييز ضد العمال", None),
+        ("外国人 入居拒否", None), ("外国人 租房被拒", None),
+        ("排外 袭击", None), ("排外主義 attacks", None),
+        ("移民 差別", None), ("移民 歧视", None),
+        ("외국인 혐오 공격", None), ("이주노동자 차별", None),
+    ],
+    "racism": [
+        ("discriminación racial fallo", None), ("discrimination raciale décision", None),
+        ("discriminazione razziale sentenza", None), ("discriminação racial decisão", None),
+        ("diskriminasi rasial putusan", None), ("dyskryminacja rasowa wyrok", None),
+        ("injures racistes enquête", None), ("injúria racial investigação", None),
+        ("institutioneel racisme", None), ("institutioneller rassismus", None),
+        ("insulti razzisti indagine", None), ("insultos racistas investigación", None),
+        ("matusi ya kibaguzi", None), ("racisme institutionnel rapport", None),
+        ("racismo institucional informe", None), ("racismo institucional relatório", None),
+        ("racistische beledigingen onderzoek", None), ("rasdiskriminering dom", None),
+        ("rasistiska påhopp utredning", None), ("rasistowskie obelgi śledztwo", None),
+        ("rassendiscriminatie uitspraak", None), ("rassismus diskriminierung urteil", None),
+        ("rassistische beleidigung ermittlungen", None), ("razzismo istituzionale", None),
+        ("ubaguzi wa rangi", None), ("ujaran rasis penyelidikan", None),
+        ("ırk ayrımcılığı karar", None), ("ırkçı hakaret soruşturma", None),
+        ("ρατσιστική επίθεση έρευνα", None), ("φυλετικές διακρίσεις απόφαση", None),
+        ("расистские оскорбления расследование", None), ("расовая дискриминация решение", None),
+        ("إساءة عنصرية تحقيق", None), ("التمييز العنصري حكم", None),
+        ("人種差別 判決", None), ("制度性歧视", None),
+        ("差別発言 調査", None), ("構造的差別 報告", None),
+        ("种族侮辱 调查", None), ("种族歧视 判决", None),
+        ("인종 혐오 발언", None), ("인종차별 판결", None),
+    ],
+    "sexism": [
+        ("acoso sexual laboral", None), ("assédio sexual no", None),
+        ("cinsiyet ayrımcılığı dava", None), ("discriminación por género", None),
+        ("discrimination de genre", None), ("discriminazione di genere", None),
+        ("discriminação de género", None), ("diskriminasi gender kasus", None),
+        ("dyskryminacja ze względu", None), ("genderdiscriminatie zaak", None),
+        ("geschlechterdiskriminierung fall", None), ("harcèlement sexuel au", None),
+        ("işyerinde cinsel taciz", None), ("könsdiskriminering fall", None),
+        ("machismo informe", None), ("molestie sessuali sul", None),
+        ("molestowanie seksualne w", None), ("pelecehan seksual di", None),
+        ("seksuele intimidatie op", None), ("sexisme rapport", None),
+        ("sexismus bericht", None), ("sexuella trakasserier på", None),
+        ("sexuelle belästigung arbeitsplatz", None), ("διακρίσεις λόγω φύλου", None),
+        ("σεξουαλική παρενόχληση στην", None), ("гендерная дискриминация дело", None),
+        ("сексуальные домогательства на", None), ("التحرش الجنسي في", None),
+        ("التمييز بين الجنسين", None), ("性别歧视 案件", None),
+        ("性差別 訴訟", None), ("职场性骚扰 判决", None),
+        ("職場のセクハラ 判決", None), ("성차별 소송", None),
+        ("직장 내 성희롱", None),
+    ],
+    "work": [
+        ("benachteiligung bei einstellung", None), ("bias perekrutan", None),
+        ("discriminación laboral tribunal", None), ("discrimination au travail", None),
+        ("discrimination à l'embauche", None), ("discriminazione sul lavoro", None),
+        ("discriminação no trabalho", None), ("diskriminasi di tempat", None),
+        ("diskriminierung am arbeitsplatz", None), ("dyskryminacja w pracy", None),
+        ("işe alımda önyargı", None), ("işyerinde ayrımcılık mahkeme", None),
+        ("pregiudizi nelle assunzioni", None), ("sesgo en contratación", None),
+        ("uprzedzenia w rekrutacji", None), ("viés na contratação", None),
+        ("διακρίσεις στην εργασία", None), ("дискриминация на работе", None),
+        ("предвзятость при найме", None), ("招聘歧视 调查", None),
+        ("採用差別 調査", None), ("职场歧视 诉讼", None),
+        ("職場 差別 訴訟", None), ("직장 내 차별", None),
+        ("채용 차별 조사", None),
+    ],
+}
+
+for _tid, _label, _terms in TOPICS:
+    _terms.extend(LOCAL_TERMS.get(_tid, []))
+
+# ------------------------------------------------------------------
+# Subjects this wire had a name for and never asked about.
+#
+# The terms below were already here and were well written; what was
+# missing was any query aimed at them, so they held zero stories
+# however much the world published. These are the phrases from the
+# queries now added, so what is fetched can be filed.
+# ------------------------------------------------------------------
+FILL_TERMS = {
+    "classism": [
+        ("barreiras por origem", None), ("barreras por origen", None),
+        ("barriere di origine", None), ("barrières liées à", None),
+        ("discriminación por clase", None), ("discrimination sociale à", None),
+        ("discriminazione per classe", None), ("discriminação por classe", None),
+        ("diskriminierung nach sozialer", None), ("soziale herkunft barriere", None),
+        ("出身 阶层 就业", None), ("出身階層 就職 差別", None),
+        ("家庭環境 職業 障壁", None), ("家庭背景 职业 壁垒", None),
+        ("사회경제적 배경 장벽", None), ("출신 계층 채용", None),
+    ],
+    "intellectual": [
+        ("adaptações por neurodivergência", None), ("adattamenti negati neurodivergenza", None),
+        ("ajustes por neurodivergencia", None), ("aménagements refusés neurodiversité", None),
+        ("discriminación por discapacidad", None), ("discrimination liée au", None),
+        ("discriminazione per disabilità", None), ("discriminação por deficiência", None),
+        ("diskriminierung wegen lernbehinderung", None), ("verweigerte anpassungen neurodiversität", None),
+        ("智力障碍 歧视", None), ("発達障害 合理的配慮 拒否", None),
+        ("知的障害 差別", None), ("神经多样性 合理便利 拒绝", None),
+        ("발달장애 편의제공 거부", None), ("지적장애 차별", None),
+    ],
+    "speciesism": [
+        ("especismo argumento tribunal", None), ("personalidad jurídica de", None),
+        ("personalidade jurídica dos", None), ("personalità giuridica degli", None),
+        ("personnalité juridique des", None), ("rechtspersönlichkeit für tiere", None),
+        ("specismo argomento tribunale", None), ("speziesismus argument gericht", None),
+        ("spécisme argument tribunal", None), ("动物 法律主体资格 案件", None),
+        ("動物の法的地位 訴訟", None), ("物种歧视 诉讼", None),
+        ("種差別 議論 裁判", None), ("동물 법적 지위", None),
+        ("종차별 논쟁 법원", None),
+    ],
+}
+
+for _tid, _label, _terms in TOPICS:
+    _terms.extend(FILL_TERMS.get(_tid, []))
+
+
+# --------------------------------------------------------------------------
+# The same subjects in the languages this wire's own queries ask in, derived
+# from those queries and filed under the subject each query's label names. The
+# gate above was written in English; the queries were translated and it was
+# not, so three quarters of what the wire fetched could not be recognised once
+# it arrived. Generated — edit topics_multilingual.json, or delete the file to
+# turn this off.
+# --------------------------------------------------------------------------
+_EXTRA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "topics_multilingual.json")
+if os.path.exists(_EXTRA_PATH):
+    with open(_EXTRA_PATH, encoding="utf-8") as _fh:
+        _EXTRA = json.load(_fh)
+    TOPICS = [(tid, label, terms + [(t, g) for t, g in _EXTRA.get(tid, [])])
+              for tid, label, terms in TOPICS]
+
 TOPICS_C = [(tid, label, [(_compile(t), _compile_all(g) if g else None) for t, g in terms])
             for tid, label, terms in TOPICS]
 GEO3_C = [(rid, rlabel, [(sid, slabel, [(pid, plabel, _compile_all(terms))
@@ -1321,19 +1536,91 @@ def scene_first(text, places):
         (scene if _is_scene(text, _first_pos(text, terms.get(pid, []))) else rest).append(pid)
     return scene + rest
 
-def point_for(text, places, subs, regions):
-    """The most specific point a story resolved to: a named sub-national place
-    if there is one, otherwise the country, otherwise the subregion or region.
-    Returns (label_or_None, point_or_None)."""
+
+# --------------------------------------------------------------------------
+# The gazetteer answers with a country; this wire's taxonomy is keyed on ids
+# whose leading token is that country's ISO-2. Filing a placed story under its
+# region is therefore a lookup, not a guess. Where a country is split across
+# several places, only region and subregion are filled: which of the places a
+# story belongs to is a question the country code cannot answer.
+# --------------------------------------------------------------------------
+ISO_REGION = {}
+for _rid, _rlabel, _subs in GEO3:
+    for _sid, _slabel, _places in _subs:
+        for _pid, _plabel, _terms in _places:
+            _iso = _pid.split("-")[0].lower()
+            if len(_iso) == 2:
+                ISO_REGION.setdefault(_iso, (_rid, _sid))
+
+
+def file_by_country(row, cc):
+    """Put a gazetteer-placed story in its region, if the wire has one."""
+    if not cc:
+        return
+    hit = ISO_REGION.get(str(cc).lower())
+    if not hit:
+        return
+    rid, sid = hit
+    if not row.get("w") or row["w"] == ["unlocated"]:
+        row["w"] = [rid]
+    if not row.get("sr") or row["sr"] == ["unlocated"]:
+        row["sr"] = [sid]
+
+
+
+def country_for(raw, locale=None):
+    """The ISO-2 the placement resolved to, or None."""
+    if not _GAZETTEER:
+        return None
+    try:
+        return galaxy_places.resolve_full(raw, locale)[4]
+    except Exception:
+        return None
+
+
+def point_for(text, places, subs, regions, locale=None, raw=None):
+    """The most specific point a story resolved to.
+
+    The order is deliberate. This wire's own curated table goes first: it holds
+    the places this subject actually turns up and the country list it was
+    written against, and it beats a general gazetteer on its own ground. The
+    shared gazetteer follows but only overrides at the settlement level, so a
+    headline naming Kharkiv pins on Kharkiv rather than the middle of Ukraine,
+    while a country reading from this wire's own table still wins over a
+    country reading from the gazetteer. Then the bodies that stand for a
+    jurisdiction without naming it — EFSA is a European story, ANVISA a
+    Brazilian one. Last, and weakest, the country the source itself reports
+    from.
+
+    Returns (label_or_None, point_or_None, approx). approx is True only for
+    that last case, where nothing in the story placed it and the point is the
+    reporting locale rather than the scene. The page draws those hollow.
+    """
     label, point = precise_for(text)
     if point:
-        return label, point
+        return label, point, False
+
+    glabel, gpoint, grank = None, None, -1
+    if _GAZETTEER:
+        glabel, gpoint, grank, _approx = galaxy_places.resolve_ranked(raw or text)
+        if grank == 3:
+            return glabel, gpoint, False
+
     places = scene_first(text, places)
     for level in (places, subs, regions):
         for pid in level:
             if pid in COORDS:
-                return None, COORDS[pid]
-    return None, None
+                return None, COORDS[pid], False
+
+    if gpoint:
+        return glabel, gpoint, False
+
+    if _GAZETTEER and locale:
+        llabel, lpoint, _lrank, lapprox = galaxy_places.resolve_ranked("", locale)
+        if lpoint:
+            return llabel, lpoint, lapprox
+
+    return None, None, False
 
 
 def load_sources():
@@ -1347,12 +1634,15 @@ def load_sources():
         for loc in cfg.get(block, []):
             srcs.append({"name": prefix + loc["label"], "lang": loc["lang"],
                          "standing": loc["standing"], "region": loc["standing"],
-                         "kind": "news", "url": build_gnews_url(loc)})
+                         "kind": "news", "url": build_gnews_url(loc), "gl": loc.get("gl")})
     return srcs, cfg
 
 
 def run(dry_run=False, fixtures=None):
+    global DEADLINE
     sources, cfg = load_sources()
+    if not fixtures:
+        DEADLINE = time.monotonic() + READ_BUDGET_MIN * 60
     print("Reading %d wires…" % len(sources))
 
     def read(src):
@@ -1412,7 +1702,12 @@ def run(dry_run=False, fixtures=None):
                 row["w"] = regions
                 row["sr"] = subs
                 row["pl"] = places
-                row["pn"], row["ll"] = point_for(text, places, subs, regions)
+                row["gl"] = src.get("gl")
+                _raw = (row["t"] or "") + " " + (row.get("s") or "")
+                row["pn"], row["ll"], row["pa"] = point_for(
+                    text, places, subs, regions, src.get("gl"), _raw)
+                if row["ll"]:
+                    file_by_country(row, country_for(_raw, src.get("gl")))
                 row["p"] = total
                 row["y"] = reasons
                 row["st"] = src["standing"]
@@ -1425,8 +1720,23 @@ def run(dry_run=False, fixtures=None):
 
     fresh_urls = {canon_url(i["u"]) for i in items}
     for row in previous:
-        if "x" in row:
-            absorb(row)
+        if "x" not in row:
+            continue
+        # A retained story is placed again rather than carried forward with the
+        # answer it happened to get the day it was first read. RETAIN_DAYS is
+        # 45, so without this a change to the placement layer takes a month and
+        # a half to reach the map, and a story never re-fetched keeps its first
+        # answer for good. Rows already holding a point resolved from their own
+        # text are left alone; only the unplaced and the source-country
+        # approximations are reconsidered.
+        if not row.get("ll") or row.get("pa"):
+            _raw = ((row.get("t") or "") + " " + (row.get("s") or ""))
+            row["pn"], row["ll"], row["pa"] = point_for(
+                _raw.lower(), row.get("pl") or [], row.get("sr") or [],
+                row.get("w") or [], row.get("gl"), _raw)
+            if row["ll"]:
+                file_by_country(row, country_for(_raw, row.get("gl")))
+        absorb(row)
 
     cutoff = int(time.time() * 1000) - RETAIN_DAYS * 86400000
     items = [i for i in items if (i.get("d") or cutoff + 1) >= cutoff]
